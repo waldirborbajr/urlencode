@@ -11,7 +11,7 @@ keywords = ["urlencode", "decode", "encode"]
 license = "MIT"
 
 [dependencies]
-clap = "3.0.14"
+clap = "4.4.8"
 urlencoding = "2.1.0"
 
 [profile.release]
