@@ -10,16 +10,19 @@ readme  = "README.md"
 keywords = ["urlencode", "decode", "encode"]
 license = "MIT"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 clap = "3.0.14"
 urlencoding = "2.1.0"
 
 [profile.release]
 lto = true
-codegen-units = 1
 panic = "abort"
 strip = true
-debug = false
 opt-level = 'z' # Optimize for size
+debug = false
+# split-debuginfo = '...'  # Platform-specific.
+debug-assertions = false
+overflow-checks = false
+incremental = false
+codegen-units = 1
+rpath = false
