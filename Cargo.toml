@@ -1,0 +1,25 @@
+[package]
+name = "urlencode"
+version = "0.1.0"
+edition = "2021"
+authors = ["Waldir Borba Junior <wborbajr@gmail.com>"]
+description = "urlencode in rust!"
+repository = "https://github.com/waldirborbajr/urlencode"
+homepage = "https://github.com/waldirborbajr/encode"
+readme  = "README.md"
+keywords = ["urlencode", "decode", "encode"]
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = "3.0.14"
+urlencoding = "2.1.0"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+debug = false
+opt-level = 'z' # Optimize for size
