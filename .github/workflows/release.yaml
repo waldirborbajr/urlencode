@@ -8,6 +8,7 @@ on:
   #     - 'v[0-9]+.*'
 env:
   RUST_BACKTRACE: full
+  TARGET_NAME: urlencode
 
 jobs:
   release:
@@ -68,10 +69,10 @@ jobs:
           args: --release --locked --target=${{ matrix.job.target }}
 
       - name: Strip debug information
-        run: strip target/${{ matrix.job.target }}/release/urlencode
+        run: strip target/${{ matrix.job.target }}/release/$TARGET_NAME
 
       - name: Archive
-        run: tar czf urlencode-${{ needs.release.outputs.release_version }}-${{ matrix.job.target }}.tar.gz -C target/${{ matrix.job.target }}/release urlencode
+        run: tar czf $TARGET_NAME-${{ needs.release.outputs.release_version }}-${{ matrix.job.target }}.tar.gz -C target/${{ matrix.job.target }}/release $TARGET_NAME
 
       - name: Upload release
         uses: actions/upload-release-asset@v1
@@ -79,8 +80,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.release.outputs.release_upload_url }}
-          asset_path: urlencode-${{ needs.release.outputs.release_version }}-${{ matrix.job.target }}.tar.gz
-          asset_name: urlencode-${{ needs.release.outputs.release_version }}-${{ matrix.job.target }}.tar.gz
+          asset_path: $TARGET_NAME-${{ needs.release.outputs.release_version }}-${{ matrix.job.target }}.tar.gz
+          asset_name: $TARGET_NAME-${{ needs.release.outputs.release_version }}-${{ matrix.job.target }}.tar.gz
           asset_content_type: application/octet-stream
 
   build-win:
@@ -111,7 +112,7 @@ jobs:
           args: --release --locked --target=${{ matrix.job.target }}
 
       - name: Archive
-        run: 7z -y a urlencode-${{ needs.release.outputs.release_version }}-${{ matrix.job.target }}.exe.zip target/${{ matrix.job.target }}/release/urlencode.exe
+        run: 7z -y a $TARGET_NAME-${{ needs.release.outputs.release_version }}-${{ matrix.job.target }}.exe.zip target/${{ matrix.job.target }}/release/$TARGET_NAME.exe
 
       - name: Upload release
         uses: actions/upload-release-asset@v1
@@ -119,6 +120,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.release.outputs.release_upload_url }}
-          asset_path: urlencode-${{ needs.release.outputs.release_version }}-${{ matrix.job.target }}.exe.zip
-          asset_name: urlencode-${{ needs.release.outputs.release_version }}-${{ matrix.job.target }}.exe.zip
+          asset_path: $TARGET_NAME-${{ needs.release.outputs.release_version }}-${{ matrix.job.target }}.exe.zip
+          asset_name: $TARGET_NAME-${{ needs.release.outputs.release_version }}-${{ matrix.job.target }}.exe.zip
           asset_content_type: application/zip
