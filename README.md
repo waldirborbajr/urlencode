@@ -8,7 +8,7 @@
 
 ## Overview
 
-A simple command line tool written in Rust programming language. It automates the process of adding all files, committing changes, and pushing them to the remote repository. This tool is designed to streamline the Git workflow, making it faster and more convenient.
+A simple command line tool written in Rust programming language. It serializes to and [not yet] deserializes, from the application/x-www-form-urlencoded format.
 
 ## Usage
 
