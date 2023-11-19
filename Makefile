@@ -7,6 +7,9 @@ run:
 clean:
 	cargo clean
 
+cache:
+	cargo-cache --remove-dir all
+
 install:
 	cargo build --release
 	cargo install --path .
