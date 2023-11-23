@@ -5,6 +5,7 @@
 [![CI](https://github.com/waldirborbajr/urlencode/actions/workflows/ci.yaml/badge.svg)](https://github.com/waldirborbajr/urlencode/actions/workflows/ci.yaml)
 [![Release](https://github.com/waldirborbajr/urlencode/actions/workflows/release.yaml/badge.svg)](https://github.com/waldirborbajr/urlencode/actions/workflows/release.yaml)
 [![Security audit](https://github.com/waldirborbajr/urlencode/actions/workflows/audit.yaml/badge.svg)](https://github.com/waldirborbajr/urlencode/actions/workflows/audit.yaml)
+[![Release to crates.io](https://github.com/waldirborbajr/urlencode/actions/workflows/crates.yaml/badge.svg)](https://github.com/waldirborbajr/urlencode/actions/workflows/crates.yaml)
 
 ## Overview
 
